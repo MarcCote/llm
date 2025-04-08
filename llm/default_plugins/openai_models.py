@@ -330,6 +330,13 @@ class SharedOptions(llm.Options):
         description="Integer seed to attempt to sample deterministically",
         default=None,
     )
+    extra_body: Optional[Union[dict, str]] = Field(
+        description=(
+            "Additional parameters to pass directly to the API request body. "
+            "Can be a JSON string or a dictionary."
+        ),
+        default=None,
+    )
 
     @field_validator("logit_bias")
     def validate_logit_bias(cls, logit_bias):
